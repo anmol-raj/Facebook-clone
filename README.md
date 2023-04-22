@@ -5,7 +5,7 @@ An advanced social media Facebook clone application using React js , Node js, Ex
 
 -A strong authentication system so you can register, login and reset password, also have a validation system for register using Formik and Yup with friendly error messages  to verify name to be a certain length or free from special characters, validate email and password, validate dates to verify age, username will be generated automatically and we will make sure it unique.
 
--Creating a mailing system where we will send verification links and reset password codes to the user, and directly after registering the user gets a verification link to activate account, so we are also learning how to create html emails.
+-Creating a mailing system where we will send verification links and reset password codes to the user, and directly after registering the user gets a verification link to activate account, also created html emails.
 
 -A home page where all posts for the people you follow or friends with will be displayed mixed with your posts and ordered from newest to oldest.
 
@@ -19,7 +19,7 @@ An advanced social media Facebook clone application using React js , Node js, Ex
 
 -All sort of validation for file upload for size and type.
 
--You will learn how to crop, zoom, rotate, flip images using crooper.
+-We can crop, zoom, rotate, flip images using crooper.
 
 -You can update your cover picture using old cover pictures or a new image with the option to crop zoom and select the part of image you want to use and after submit directly it will create a post that says user updated his/her cover picture.
 
