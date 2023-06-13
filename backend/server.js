@@ -8,6 +8,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(express.json());
 const useRoutes = require("./routes/user");
 
 app.use("/", useRoutes);
@@ -24,9 +25,8 @@ mongoose
   .catch((err) => console.log("Database connection unsuccessful", err));
 
 const port = process.env.PORT || 8000;
-
-app.use(express.json());
-
 app.listen(port, () => {
   console.log(`Server has started on port ${port}...`);
 });
+
+// console.log((+new Date() * Math.random()).toString().substring(0, 1));
