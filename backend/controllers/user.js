@@ -1,3 +1,5 @@
+const { sendVerificationEmail } = require("../helpers/mailer");
+const { generateToken } = require("../helpers/tokens");
 const {
   validateEmail,
   validateLength,
@@ -38,7 +40,7 @@ exports.register = async (req, res) => {
         message: "first name must be between 3 and 30 characters.",
       });
     }
-    console.log(last_name, "last_name");
+    // console.log(last_name, "last_name");
     if (validateLength(last_name, 3, 30)) {
       return res.status(400).json({
         message: "last name must be between 3 and 30 characters.",
@@ -57,7 +59,7 @@ exports.register = async (req, res) => {
 
     let tempUsername = first_name + last_name;
     let newUsername = await validateUsername(tempUsername);
-    console.log(username, newUsername);
+    // console.log(username, newUsername);
 
     const user = await new User({
       first_name,
@@ -70,6 +72,13 @@ exports.register = async (req, res) => {
       bDay,
       gender,
     }).save();
+    const emailVerificationToken = generateToken(
+      { id: user._id.toString() },
+      "30m"
+    );
+    console.log(emailVerificationToken);
+    const url = `${process.env.BASE_URL}/activate/${emailVerificationToken}`;
+    sendVerificationEmail(user.email, user.first_name, url);
     res.json(user);
   } catch (error) {
     res.status(500).json({ message: error.message });
