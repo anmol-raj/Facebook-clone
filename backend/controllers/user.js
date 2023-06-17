@@ -7,6 +7,7 @@ const {
 } = require("../helpers/validation");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 exports.register = async (req, res) => {
   try {
@@ -79,8 +80,61 @@ exports.register = async (req, res) => {
     console.log(emailVerificationToken);
     const url = `${process.env.BASE_URL}/activate/${emailVerificationToken}`;
     sendVerificationEmail(user.email, user.first_name, url);
-    res.json(user);
+    const token = generateToken({ id: user._id.toString() }, "7d");
+    return res.send({
+      id: user._id,
+      username: user.username,
+      picture: user.picture,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      token: token,
+      verified: user.verified,
+      message: "Register success ! please activate your email to start",
+    });
+    return res.json(user);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+exports.activateAccount = async (req, res) => {
+  try {
+    const { token } = req.body;
+    const user = jwt.verify(token, process.env.TOKEN_SECRET);
+    console.log(user);
+    const check = await User.findById(user.id);
+    if (check.verified == true) {
+      return res
+        .status(400)
+        .json({ message: "This email is already activated" });
+    } else {
+      await User.findByIdAndUpdate(user.id, { verified: true });
+      return res
+        .status(200)
+        .json({ message: "Account has been activated successfully." });
+    }
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+exports.login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email: email });
+    if (!user) {
+      return res.status(400).json({
+        message:
+          "the email address you entered is not connected to an account.",
+      });
+    }
+    const check = await bcrypt.compare(password, user.password);
+    if (!check) {
+      return res.status(400).json({
+        message: "Invalid Password. Please try again",
+      });
+    }
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
   }
 };
