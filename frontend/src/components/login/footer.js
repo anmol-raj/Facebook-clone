@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function footer() {
+export default function Footer() {
   return (
     <footer className="login_footer">
       <div className="login_footer_wrap">
@@ -55,7 +55,7 @@ export default function footer() {
       </div>
       <div className="login_footer_wrap">
         <Link to="/" style={{ fontSize: "12px", marginTop: "10px" }}>
-          Meta © 2022
+          Meta © 2023
         </Link>
       </div>
     </footer>

@@ -1,22 +1,23 @@
+/* ----- login -------- */
 .login_wrapper {
     background: var(--bg-secondary);
-  }
-  
-  .login_wrap {
+}
+
+.login_wrap {
     height: 78vh;
     color: var(--color-primary);
-  }
-  .login_1 {
+}
+.login_1 {
     width: 300px;
     margin: 0 auto;
-  }
-  .login_1 span {
+}
+.login_1 span {
     font-size: 20px;
-  }
-  .login_2 {
+}
+.login_2 {
     text-align: center;
-  }
-  .login_2_wrap {
+}
+.login_2_wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,44 +31,183 @@
     margin: 1rem auto;
     user-select: none;
     border-radius: 10px;
-  }
-  .login_2_wrap button {
+}
+.login_2_wrap button {
     width: 100%;
     height: 50px;
-  }
-  .forgot_password {
+}
+.forgot_password {
     color: var(--blue-color);
     font-size: 14px;
     cursor: pointer;
     font-weight: 500;
-  }
-  .forgot_password:hover {
+}
+.forgot_password:hover {
     text-decoration: underline;
-  }
-   
-  input {
-    display: block;
-  }
-  form {
-    width: 100%;
-  }
+}
 
-  .sign_splitter {
+input {
+    display: block;
+}
+
+
+.sign_splitter {
     width: 100%;
     height: 1px;
     background: var(--bg-third);
-  }
+}
 
-  .open_signup {
+.open_signup {
     background: var(--green-color) !important;
     width: 70% !important;
     font-weight: 400 !important;
     font-size: 17px !important;
-  }
+}
 
-  .sign_extra {
+.sign_extra {
     font-size: 15px;
-  }
+}
+
+/* ----- login -------- */
+
+/* ----- Register -------- */
+
+.register {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--bg-primary);
+    box-shadow: 0 1px 2px var(--shadow-1) ;
+    border-radius: 10px;
+    padding: 1rem;
+    padding-bottom: 1rem;
+    width: 432px;
+    height: fit-content;
+    color: var(--bg-primary);
+}
+
+.register_header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5.5px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--bg-third);
+    margin-bottom: 1rem;
+}
+
+.register_header i {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+.register_header span:last-of-type { 
+color: #606770;
+font-size: 15px;
+}
+
+.register_header span:first-of-type {
+    font-weight: 700;
+    font-size: 32px;
+    color: #1c1e21; 
+}
+
+.register_form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register_form .input_wrap {
+    width: 100%;
+}
+
+.register_form .input_wrap input {
+    height: 45px;
+    font-size: 1rem;
+}
+
+.reg_line {
+    padding: 7px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.reg_line_header {
+    color: var(--color-secondary);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 2px;
+}
+
+.reg_grid {
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    height: 35px;
+    width: 100%;
+}
+
+.reg_grid select {
+    width: 127px;
+    font-size: 1rem;
+    color: var(--color-primary);
+    background: var(--bg-primary);
+    border-radius: 5px;
+    cursor: pointer;
+    border-color: #ccd0d5;
+}
+
+.reg_grid label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: var(--color-primary);
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #ccd0d5;
+    padding: 0 10px;
+}
+
+.reg_col {
+    position: relative;
+    align-self: flex-start;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.reg_infos {
+    color: #777;
+    font-size: 11px;
+}
+.reg_infos a {
+    color: #385898;
+}
+.reg_infos p{
+   margin: 11px 0;
+}
+.reg_infos a:hover {
+    text-decoration: underline;
+}
+
+.reg_btn_wrapper {
+   
+}
+.reg_btn_wrapper button {
+    margin: 0 auto;
+    width: 194px !important;
+}
+
+/* ----- Register -------- */
 
   /* ----Buttons ---- */
   .blue_btn {
@@ -85,6 +225,16 @@
       justify-content: center;
       gap: 6px;
       cursor: pointer;
+    }
+
+    .blur {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.768);
+        z-index: 99;
     }
     /* ----Buttons ---- */
 
@@ -140,6 +290,7 @@
         .login_footer_wrap {
             max-width: 520px;
         }
+        
     }
 
     @media (min-width:650px) {
@@ -173,7 +324,7 @@
         width: 400px;
     }
     .input_wrap {
-        width: 360px !important;
+        /* width: 360px !important; */
     }
     .input_wrap input:focus {
         border-color: var(--blue-color);
@@ -181,5 +332,6 @@
     .login_footer_wrap {
         max-width: 900px;
     }
+    
 }
     /* ----- Media Queries ----- */
