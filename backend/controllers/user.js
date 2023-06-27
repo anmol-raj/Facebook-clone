@@ -89,7 +89,6 @@ exports.register = async (req, res) => {
       last_name: user.last_name,
       token: token,
       verified: user.verified,
-      message: "Register success ! please activate your email to start",
     });
     return res.json(user);
   } catch (error) {
@@ -121,7 +120,7 @@ exports.activateAccount = async (req, res) => {
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await User.findOne({ email: email });
+    const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({
         message:
@@ -134,6 +133,16 @@ exports.login = async (req, res) => {
         message: "Invalid Password. Please try again",
       });
     }
+    // const token = generateToken({ id: user._id.toString() }, "7d");
+    res.send({
+      id: user._id,
+      username: user.username,
+      picture: user.picture,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      token: user.token,
+      verified: user.token,
+    });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

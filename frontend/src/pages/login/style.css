@@ -82,7 +82,7 @@ input {
     border-radius: 10px;
     padding: 1rem;
     padding-bottom: 1rem;
-    width: 432px;
+    width: 350px;
     height: fit-content;
     color: var(--bg-primary);
 }
@@ -157,13 +157,13 @@ font-size: 15px;
 }
 
 .reg_grid select {
-    width: 127px;
     font-size: 1rem;
     color: var(--color-primary);
     background: var(--bg-primary);
     border-radius: 5px;
     cursor: pointer;
     border-color: #ccd0d5;
+    padding: 7px ;
 }
 
 .reg_grid label {
@@ -183,6 +183,7 @@ font-size: 15px;
     align-self: flex-start;
     margin-bottom: 10px;
     padding: 0;
+    width: 100%;
 }
 
 .reg_infos {
@@ -284,14 +285,49 @@ font-size: 15px;
 
     /* ---- footer ---- */
 
+     /* ------ dob and gender errors ------ */
+
+     .reg_grid .input_error {
+      width: 300px;
+      position: absolute;
+      top: 70px;
+     }
+
+     /* ------ dob and gender errors ------ */
+
+     /* ----- Error & Success -------- */
+
+     .error_text {
+        color: #b94a48;
+     }
+
+     .success_text {
+         color: var(--green-color);
+     }
+
+
+     /* ----- Error & Success -------- */
+
     /* ----- Media Queries ----- */
 
     @media (min-width:539px) {
         .login_footer_wrap {
             max-width: 520px;
         }
-        
-    }
+        .register {
+            width: 400px;
+        }
+        .reg_line {
+            flex-direction: row;
+        }
+        .reg_grid select , .reg_grid label{
+          width: 115px;
+        }
+        .reg_grid .input_error {
+            width: 350px;
+           }
+       
+    } 
 
     @media (min-width:650px) {
         .login_footer_wrap {
