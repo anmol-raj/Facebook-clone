@@ -156,7 +156,7 @@
   display: inline-block;
 }
 .logout_filled_icon {
-  background-image: url(../../../public/icons/icons15.png);
+  background-image: url(../../../icons/icons15.png);
   background-position: 0px -46px;
   background-size: auto;
   width: 20px;
@@ -165,7 +165,7 @@
   display: inline-block;
 }
 .right_icon {
-  background-image: url(../../../public/icons/icons18.png);
+  background-image: url(../../../icons/icons18.png);
   background-position: -83px -13px;
   background-size: auto;
   width: 24px;
@@ -220,7 +220,7 @@
   display: inline-block;
 }
 .arrow_back_icon {
-  background-image: url(../../../public/icons/icons18.png);
+  background-image: url(../../../icons/icons18.png);
   background-position: 0px -46px;
   background-size: auto;
   width: 20px;
@@ -468,7 +468,7 @@
   filter: invert(40%);
 }
 .edit_icon {
-  background-image: url("../../../public/icons/icons18.png");
+  background-image: url("../../../icons/icons18.png");
   background-position: -34px -109px;
   background-size: auto;
   width: 16px;
