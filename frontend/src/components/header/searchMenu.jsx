@@ -20,7 +20,9 @@ export default function SearchMenu({ color, setShowSearchMenu }) {
         <div className="header_logo">
           <div
             className="circle hover1"
-            onClick={() => setShowSearchMenu(false)}
+            onClick={() => {
+              setShowSearchMenu(false);
+            }}
           >
             <Return color={color} />
           </div>
