@@ -83,18 +83,15 @@ export default function Header() {
           <img src={user?.picture} alt="" />
           <span>{user?.first_name}</span>
         </Link>
-        <div
-          className={`circle_icon hover1 ${showAllMenu && "active_header"}`}
-          ref={allmenu}
-        >
+        <div ref={allmenu}>
           <div
+            className={`circle_icon hover1 ${showAllMenu && "active_header"}`}
+            style={{ transform: "translateY(2px)" }}
             onClick={() => {
               setShowAllMenu((prev) => !prev);
             }}
           >
-            <div style={{ transform: "translateY(2px)" }}>
-              <Menu />
-            </div>
+            <Menu />
           </div>
 
           {showAllMenu && <AllMenu />}
@@ -111,13 +108,12 @@ export default function Header() {
           ref={usermenu}
         >
           <div
+            style={{ transform: "translateY(2px)" }}
             onClick={() => {
               setShowUserMenu((prev) => !prev);
             }}
           >
-            <div style={{ transform: "translateY(2px)" }}>
-              <ArrowDown />
-            </div>
+            <ArrowDown />
           </div>
 
           {showUserMenu && <UserMenu user={user} />}

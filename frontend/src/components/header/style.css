@@ -218,12 +218,12 @@ header {
   /*---Search All Menu-----*/
   .all_menu {
     position: absolute;
-    right: -9rem;
+    right: 15px;
     top: 45px;
     background: var(--bg-secondary);
     border-radius: 10px;
     height: 90vh;
-    width: 575px;
+    width: 530px;
     padding: 10px 1rem;
     box-shadow: -2px 1px 5px 2px var(--shadow-1);
     user-select: none;

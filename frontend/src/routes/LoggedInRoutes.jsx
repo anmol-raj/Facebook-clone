@@ -4,7 +4,7 @@ import Login from "../pages/login";
 
 const LoggedInRoutes = () => {
   const user = useSelector((state) => ({ ...state }), shallowEqual);
-  return user?.username ? <Outlet /> : <Login />;
+  return user ? <Outlet /> : <Login />;
 };
 
 export default LoggedInRoutes;
