@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { ArrowDown1 } from "../../../svg";
 import { useState } from "react";
 import Shortcut from "./Shortcut";
-
 export default function LeftHome({ user }) {
   const [visible, setVisible] = useState(false);
   return (
@@ -25,7 +24,12 @@ export default function LeftHome({ user }) {
         />
       ))}
       {!visible && (
-        <div className="left_link hover1" onClick={() => setVisible(true)}>
+        <div
+          className="left_link hover1"
+          onClick={() => {
+            setVisible(true);
+          }}
+        >
           <div className="small_circle">
             <ArrowDown1 />
           </div>
@@ -42,7 +46,12 @@ export default function LeftHome({ user }) {
               notification={link.notification}
             />
           ))}
-          <div className="left_link hover1" onClick={() => setVisible(false)}>
+          <div
+            className="left_link hover1 "
+            onClick={() => {
+              setVisible(false);
+            }}
+          >
             <div className="small_circle rotate360">
               <ArrowDown1 />
             </div>
@@ -57,27 +66,32 @@ export default function LeftHome({ user }) {
       </div>
       <div className="shortcut_list">
         <Shortcut
-          link={""}
-          img={"../../images/ytb.png"}
-          name={"My Youtube Channel"}
+          link="https://www.youtube.com/c/MohamedHaJJi1/featured"
+          img="../../images/ytb.png"
+          name="My Youtube channel"
         />
+
         <Shortcut
-          link={""}
-          img={"../../images/insta.png"}
-          name={"My Instagram"}
+          link="https://www.instagram.com/med_hajji7/"
+          img="../../images/insta.png"
+          name="My Instagram "
         />
       </div>
       <div className={`fb_copyright ${visible && "relative_fb_copyright"}`}>
-        <Link to={"/"}>Privacy</Link>
+        <Link to="/">Privacy </Link>
         <span>. </span>
-        <Link to={"/"}>Terms</Link> <span>. </span>
-        <Link to={"/"}>Advertising</Link> <span>. </span>
-        <Link to={"/"}>
-          Ad Choice <i className="ad_choices_icon"></i>{" "}
-        </Link>{" "}
+        <Link to="/">Terms </Link>
         <span>. </span>
-        <Link to={"/"}>Cookies</Link> <span>. </span>
-        <Link to={"/"}>More</Link> <br />
+        <Link to="/">Advertising </Link>
+        <span>. </span>
+        <Link to="/">
+          Ad Choices <i className="ad_choices_icon"></i>{" "}
+        </Link>
+        <span>. </span>
+        <Link to="/"></Link>Cookies <span>. </span>
+        <Link to="/">More </Link>
+        <span>. </span> <br />
+        Meta © 2022
       </div>
     </div>
   );

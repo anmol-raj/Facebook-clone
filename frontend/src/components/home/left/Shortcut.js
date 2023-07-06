@@ -1,10 +1,8 @@
-export default function Shortcut({ img, link, name }) {
+export default function Shortcut({ link, img, name }) {
   return (
-    <div>
-      <a href={link} target="_blank" rel="noreferrer" className="shortcut_item">
-        <img src={img} alt="" />
-        <span>{name}</span>
-      </a>
-    </div>
+    <a href={link} target="_blank" rel="noreferrer" className="shortcut_item">
+      <img src={img} alt="" />
+      <span>{name}</span>
+    </a>
   );
 }
