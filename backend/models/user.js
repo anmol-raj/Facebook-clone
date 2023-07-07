@@ -1,5 +1,6 @@
-const { ObjectId } = require("mongodb");
 const mongoose = require("mongoose");
+
+const { ObjectId } = mongoose.Schema;
 
 const userSchema = mongoose.Schema(
   {
@@ -17,33 +18,30 @@ const userSchema = mongoose.Schema(
     },
     username: {
       type: String,
-      required: [true, "user name is required"],
+      required: [true, "username is required"],
       trim: true,
       text: true,
       unique: true,
     },
+
     email: {
       type: String,
       required: [true, "email is required"],
       trim: true,
-      unique: true,
     },
     password: {
       type: String,
       required: [true, "password is required"],
-      unique: true,
     },
     picture: {
       type: String,
       trim: true,
       default:
-        "https://t3.ftcdn.net/jpg/03/46/83/96/240_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg",
+        "https://res.cloudinary.com/dmhcnhtng/image/upload/v1643044376/avatars/default_pic_jeaybr.png",
     },
     cover: {
       type: String,
       trim: true,
-      default:
-        "https://t3.ftcdn.net/jpg/03/46/83/96/240_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg",
     },
     gender: {
       type: String,
@@ -88,7 +86,7 @@ const userSchema = mongoose.Schema(
     search: [
       {
         user: {
-          type: mongoose.Schema.ObjectId,
+          type: ObjectId,
           ref: "User",
         },
       },
@@ -103,7 +101,7 @@ const userSchema = mongoose.Schema(
       job: {
         type: String,
       },
-      workPlace: {
+      workplace: {
         type: String,
       },
       highSchool: {
@@ -115,12 +113,12 @@ const userSchema = mongoose.Schema(
       currentCity: {
         type: String,
       },
-      homeTown: {
+      hometown: {
         type: String,
       },
       relationship: {
         type: String,
-        enum: ["Single", "In-Relationship", "Married", "Divorced"],
+        enum: ["Single", "In a relationship", "Married", "Divorced"],
       },
       instagram: {
         type: String,

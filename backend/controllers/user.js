@@ -91,7 +91,6 @@ exports.activateAccount = async (req, res) => {
   try {
     const { token } = req.body;
     const user = jwt.verify(token, process.env.TOKEN_SECRET);
-    console.log(user);
     const check = await User.findById(user.id);
     if (check.verified == true) {
       return res
