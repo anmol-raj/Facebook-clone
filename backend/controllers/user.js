@@ -3,7 +3,7 @@ const {
   validateLength,
   validateUsername,
 } = require("../helpers/validation");
-const User = require("../models/user");
+const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const { generateToken } = require("../helpers/tokens");
@@ -40,6 +40,7 @@ exports.register = async (req, res) => {
         message: "first name must between 3 and 30 characters.",
       });
     }
+
     if (!validateLength(last_name, 3, 30)) {
       return res.status(400).json({
         message: "last name must between 3 and 30 characters.",
@@ -136,4 +137,8 @@ exports.login = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+};
+
+exports.auth = (req, res) => {
+  res.json("welcome from auth");
 };
