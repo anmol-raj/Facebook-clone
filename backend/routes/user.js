@@ -4,7 +4,7 @@ const {
   activateAccount,
   login,
   auth,
-} = require("../controllers/user");
+} = require("../controllers/user-controller");
 const { authUser } = require("../middleware/auth");
 
 const router = express.Router();
@@ -12,6 +12,6 @@ const router = express.Router();
 router.post("/register", register);
 router.post("/activate", activateAccount);
 router.post("/login", login);
-router.post("/auth", authUser, auth);
+// router.post("/auth", authUser, auth);
 
 module.exports = router;

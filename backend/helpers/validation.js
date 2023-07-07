@@ -1,4 +1,4 @@
-const User = require("../models/user");
+const User = require("../models/user-models");
 
 exports.validateEmail = (email) => {
   return String(email)

@@ -3,7 +3,7 @@ const {
   validateLength,
   validateUsername,
 } = require("../helpers/validation");
-const User = require("../models/user");
+const User = require("../models/user-models");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const { generateToken } = require("../helpers/tokens");
@@ -140,5 +140,6 @@ exports.login = async (req, res) => {
 };
 
 exports.auth = (req, res) => {
+  console.log(req, "running", "response", res);
   res.json("welcome from auth");
 };
